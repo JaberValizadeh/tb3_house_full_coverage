@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>tb3_house_full_coverage</name>
+  <version>0.1.0</version>
+  <description>
+    A single TurtleBot3 covering an entire house room by room - kitchen,
+    L-shaped living room, small store room, bathroom, bedroom, a U-shaped
+    study wrapping a solid block, and the corridor joining them. Sweeps each
+    room's edges then fills the middle, reaching 100% of the reachable floor.
+  </description>
+
+  <maintainer email="valizadeh.au@gmail.com">Jaber Valizadeh</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>gazebo_msgs</depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <!-- localization.launch: map + AMCL -->
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+  <export>
+  </export>
+</package>

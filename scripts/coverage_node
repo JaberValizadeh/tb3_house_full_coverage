@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from tb3_house_full_coverage.coverage_node import main
+main()

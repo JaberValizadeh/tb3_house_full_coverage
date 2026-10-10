@@ -1,0 +1,5 @@
+<launch>
+  <!-- The sweep controller alone - the only node that publishes cmd_vel. -->
+  <node pkg="tb3_house_full_coverage" type="coverage_node"
+        name="house_full_coverage" output="screen"/>
+</launch>

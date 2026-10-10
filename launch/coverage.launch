@@ -1,0 +1,15 @@
+<launch>
+  <!-- STAGE 3: coverage accounting + the sweep itself.
+
+       sweep:=false brings up only the coordinator, so you can see the room
+       breakdown and the (empty) coverage grid in RViz before the robot moves;
+       start the sweep afterwards with sweep.launch. -->
+
+  <arg name="sweep" default="true"/>
+
+  <node pkg="tb3_house_full_coverage" type="coordinator_node"
+        name="house_full_coordinator" output="screen"/>
+
+  <include if="$(arg sweep)"
+           file="$(find tb3_house_full_coverage)/launch/sweep.launch"/>
+</launch>

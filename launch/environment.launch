@@ -1,0 +1,24 @@
+<launch>
+  <!-- STAGE 1: house world + one TurtleBot3, parked at the west end of the
+       corridor. Run this first, then localization.launch, then coverage.launch. -->
+  <arg name="model" default="burger"/>
+  <arg name="gui" default="true"/>
+  <arg name="x" default="-3.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find tb3_house_full_coverage)/worlds/house.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro"/>
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"
+        args="-urdf -model turtlebot3 -x $(arg x) -y $(arg y) -z 0.0 -Y $(arg yaw) -param robot_description"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0"/>
+  </node>
+</launch>
